@@ -28,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
         // Model::preventSilentlyDiscardingAttributes(! app()->isProduction());
 
         Model::unguard();
+        Model::preventAccessingMissingAttributes();
     }
 }
