@@ -5,21 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTodoRequest;
 use App\Http\Resources\TodoResource;
 use App\Models\Todo;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class TodoApiController extends Controller
 {
-    /**
-     * @OA\Get(
-     *     path="/api/todos",
-     *     @OA\Response(response="200", description="Todos endpoint")
-     * )
-     */
     public function index()
     {
         // Todo::factory(10)->create();
-        $todos = Todo::all();
+        $todos = Todo::with('user')->get();
 
         return TodoResource::collection($todos);
     }
@@ -37,6 +30,7 @@ class TodoApiController extends Controller
     public function store(StoreTodoRequest $request)
     {
         $todo = Todo::create($request->all());
+
         return new TodoResource($todo);
     }
 
@@ -44,6 +38,7 @@ class TodoApiController extends Controller
     {
         $todo = Todo::findOrFail($todo);
         $todo->update($request->all());
+
         return new TodoResource($todo);
     }
 
@@ -51,8 +46,7 @@ class TodoApiController extends Controller
     {
         $todo = Todo::findOrFail($todo);
         $todo->delete();
+
         return response(null, Response::HTTP_NO_CONTENT);
     }
-
-
 }

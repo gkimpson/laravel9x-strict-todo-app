@@ -21,7 +21,7 @@ class TodoFactory extends Factory
             'user_id' => User::inRandomOrder()->first()->id,
             'title' => fake()->text(),
             'description' => fake()->text(),
-            'is_completed' => null
+            'is_completed' => null,
         ];
     }
 }
