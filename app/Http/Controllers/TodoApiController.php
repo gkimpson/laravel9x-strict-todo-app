@@ -11,7 +11,6 @@ class TodoApiController extends Controller
 {
     public function index()
     {
-        // Todo::factory(10)->create();
         $todos = Todo::with('user')->get();
 
         return TodoResource::collection($todos);
