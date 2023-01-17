@@ -1,0 +1,19 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Todo API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/todos": {
+            "get": {
+                "operationId": "b3955e1f3b4de27903ab7ed56730ff27",
+                "responses": {
+                    "200": {
+                        "description": "Todos endpoint"
+                    }
+                }
+            }
+        }
+    }
+}

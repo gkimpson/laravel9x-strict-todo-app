@@ -10,6 +10,12 @@ use Illuminate\Http\Response;
 
 class TodoApiController extends Controller
 {
+    /**
+     * @OA\Get(
+     *     path="/api/todos",
+     *     @OA\Response(response="200", description="Todos endpoint")
+     * )
+     */
     public function index()
     {
         // Todo::factory(10)->create();
