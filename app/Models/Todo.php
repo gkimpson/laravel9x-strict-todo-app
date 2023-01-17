@@ -13,7 +13,7 @@ class Todo extends Model
 
     protected $casts = [];
 
-    public function user()
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class);
     }

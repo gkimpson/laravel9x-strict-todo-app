@@ -21,6 +21,7 @@ class TodoResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'is_completed' => $this->is_completed ? 'complete' : 'incomplete',
+            // @phpstan-ignore-next-line
             'user' => $this->user->name,
         ];
     }
